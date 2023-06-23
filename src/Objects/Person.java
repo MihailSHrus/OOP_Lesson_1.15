@@ -9,7 +9,7 @@ public class Person {
         fullName = f;
         age = a;
     }
-    // Блое переменных
+    // Блок переменных
     public String fullName;
     public int age;
     // Блок методов

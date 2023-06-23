@@ -19,6 +19,7 @@ public class Phone implements Serializable {
     public String number;
     public String model;
     public double weight;
+    public boolean deceased;
     // Блок методов     г)
     public String getNumber() {
         return number;
@@ -48,5 +49,31 @@ public class Phone implements Serializable {
         for (String i:array) {
             System.out.println(i + " ");
         }
+    }
+    // Переопределение методов equals(), hashCode(), toString()
+    public boolean equal(Object o){
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Phone that = (Phone) o;
+
+        if (deceased != that.deceased) {
+            return false;
+        }
+        return !(number != null ? !number.equals(that.number) : that.number != null);
+    }
+    public int hashCode() {
+        int result = number != null ? number.hashCode() : 0;
+        result = 31 * result + (deceased ? 1 : 0);
+        return result;
+    }
+    public String toString() {
+        return "Phone{" +
+                "number='" + number + '\'' +
+                ", deceased=" + deceased +
+                '}';
     }
 }
